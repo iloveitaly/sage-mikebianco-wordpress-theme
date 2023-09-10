@@ -1,0 +1,144 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import url('//fonts.googleapis.com/css?family=Open+Sans:300,400italic,700italic,400,300,700');
+
+header.banner {
+  background-image: url('//mikebian.co/wp-content/uploads/2015/02/wood.jpg');
+  @apply mb-16;
+}
+
+main {
+  @apply container mx-auto;
+}
+
+#menu-primary-navigation {
+  @apply w-full font-medium flex flex-row mt-4 mb-5
+}
+
+header {
+  .menu-item {
+    @apply text-white uppercase font-bold px-3 pb-4 border-b-2 border-b-transparent hover:border-b-2 hover:border-b-white duration-500 ease-in-out;
+  }
+
+  .menu-item a {
+    @apply block;
+  }
+
+  .current-menu-item {
+    @apply border-b-white
+  }
+}
+
+/* post list */
+article.post-summary {
+  a:first-child {
+    /* 500 is used as a default for <a>, which is what we are wrapping the entire post element in */
+    @apply font-normal;
+
+    p {
+      /* the <a> color will overide the <p> link color */
+      color: var(--tw-prose-body);
+      @apply duration-200 ease-in-out;
+    }
+
+    /* little chevron */
+    svg {
+      will-change: opacity, text-color;
+      @apply opacity-0 transition-colors transition-opacity duration-200 ease-in-out;
+    }
+
+    h2 {
+      @apply duration-200 ease-in-out;
+    }
+
+    .excerpt-continue {
+      @apply text-alt-link;
+    }
+
+    &:hover {
+      @apply no-underline;
+
+      /* svg + excerpt-continue are the 'Continue Reading' block */
+      svg {
+        @apply opacity-100 duration-200 ease-in-out;
+      }
+
+      .excerpt-continue {
+        @apply text-alt-link duration-200 ease-in-out;
+      }
+
+      h2 {
+        @apply text-alt-link duration-200 ease-in-out;
+      }
+    }
+  }
+}
+
+/* older / newer posts buttons */
+.posts-navigation {
+  @apply mt-12;
+
+  .nav-links {
+    @apply flex flex-row justify-between;
+  }
+
+  a {
+    @apply border-2 border-alt-link text-alt-link px-5 py-3 block;
+
+    &:hover {
+      @apply bg-alt-link text-white no-underline duration-200;
+    }
+  }
+}
+
+/* sidebar is not on the side in this theme! */
+.sidebar {
+  @apply container mx-auto flex gap-12;
+
+  section {
+    /* assumes three sections */
+    @apply prose w-1/3;
+
+    /* make any ul > li > a inline rounded pills, include a light blue background color */
+    ul {
+      @apply flex flex-row flex-wrap justify-start list-none p-0;
+
+      li {
+        /* remove padding/margin from all years & categories; add padding to the <a> instead */
+        @apply p-0 m-0;
+
+        a {
+          @apply text-slate-900 bg-slate-100 border-[1px] rounded-full px-2 py-0 m-1 inline-block
+            hover:no-underline hover:bg-slate-200 hover:border-slate-300 duration-200 ease-in-out;
+
+          &:hover {
+            @apply no-underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* override wp horizontal stack css */
+footer .is-layout-flex > h3 {
+  @apply mt-8;
+}
+
+footer {
+  @apply bg-gray-50 border-t-[1px] mt-16 pb-8 prose max-w-none;
+
+  section {
+    @apply w-full px-5;
+
+    ul {
+      /* no bullets on link lists */
+      @apply list-none m-0 p-0;
+
+      li {
+        @apply pl-0;
+      }
+    }
+  }
+}
