@@ -1,6 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
 @import url('//fonts.googleapis.com/css?family=Open+Sans:300,400italic,700italic,400,300,700');
 
 header.banner {

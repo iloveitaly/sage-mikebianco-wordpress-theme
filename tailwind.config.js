@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} config */
 import typography from '@tailwindcss/typography';
+
 import defaultTheme from 'tailwindcss/defaultTheme.js';
 import colors from 'tailwindcss/colors.js'
 
@@ -10,6 +11,7 @@ const config = {
       fontFamily: {
         'sans': ['"Open Sans"', ...defaultTheme.fontFamily.sans],
       },
+      // create custom color variable
       colors: {
         'alt-link': colors.sky['600']
       },
@@ -21,10 +23,9 @@ const config = {
             '--tw-prose-body': '#3a4149',
 
             a: {
-              // TODO how can i set this to be used as a variable
-
               color: theme('colors.blue.500'),
               textDecoration: 'none',
+
               "&:hover": {
                 textDecoration: 'underline',
               }
@@ -34,6 +35,7 @@ const config = {
               color: theme('colors.red.500'),
               backgroundColor: theme('colors.red.50'),
               borderRadius: "4px",
+              // remove the backticks on `code` blocks
               // "&::before": {
               //   content: '"" !important',
               // },
