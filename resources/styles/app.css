@@ -1,16 +1,11 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-
 @import url('//fonts.googleapis.com/css?family=Open+Sans:300,400italic,700italic,400,300,700');
 
 header.banner {
   background-image: url('//mikebian.co/wp-content/uploads/2015/02/wood.jpg');
   @apply mb-16;
-}
-
-main {
-  @apply container mx-auto;
 }
 
 #menu-primary-navigation {
@@ -76,6 +71,12 @@ article.post-summary {
   }
 }
 
+main {
+  @apply container mx-auto
+    /* padding on mobile */
+    px-5 md:px-0;
+}
+
 /* older / newer posts buttons */
 .posts-navigation {
   @apply mt-12;
@@ -85,7 +86,7 @@ article.post-summary {
   }
 
   a {
-    @apply border-2 border-alt-link text-alt-link px-5 py-3 block;
+    @apply border-2 border-alt-link text-alt-link px-3 py-3 block;
 
     &:hover {
       @apply bg-alt-link text-white no-underline duration-200;
@@ -95,11 +96,13 @@ article.post-summary {
 
 /* sidebar is not on the side in this theme! */
 .sidebar {
-  @apply container mx-auto flex gap-12;
+  @apply container mx-auto
+    /* horizontal except on mobile */
+    flex flex-col md:flex-row gap-0 md:gap-12 px-5 md:px-0;
 
   section {
     /* assumes three sections */
-    @apply prose w-1/3;
+    @apply prose w-full md:w-1/3;
 
     /* make any ul > li > a inline rounded pills, include a light blue background color */
     ul {
