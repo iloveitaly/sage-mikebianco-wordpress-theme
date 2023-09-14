@@ -1,0 +1,2 @@
+rsync -avz ../mikebian.co/wp-content/themes/bianco/ ./ --exclude=README.md --exclude=TODO
+
